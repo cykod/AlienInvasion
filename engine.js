@@ -1,4 +1,4 @@
-var Game = (function() {                                                                  
+var Game = new function() {                                                                  
   var boards = [];
 
   // Game Initialization
@@ -104,12 +104,10 @@ var Game = (function() {
 
   };
 
-  return this;
-
-})();
+};
 
 
-var SpriteSheet = (function() {
+var SpriteSheet = new function() {
   this.map = { }; 
 
   this.load = function(spriteData,callback) { 
@@ -131,7 +129,7 @@ var SpriteSheet = (function() {
   };
 
   return this;
-})();
+};
 
 var TitleScreen = function TitleScreen(title,subtitle,callback) {
   var up = false;
