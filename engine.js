@@ -99,8 +99,8 @@ var Game = new function() {
     var container = document.getElementById("container"),
         hasTouch =  !!('ontouchstart' in window),
         w = window.innerWidth, h = window.innerHeight;
-
-    if(hasTouch) { mobile = true; }
+      
+    if(hasTouch) { this.mobile = true; }
 
     if(screen.width >= 1280 || !hasTouch) { return false; }
 
