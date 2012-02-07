@@ -1,7 +1,7 @@
 CACHE MANIFEST
 
-# v0.1
+# v0.2
 index.html
 engine.js
 game.js
-images/*
+images/sprites.png
