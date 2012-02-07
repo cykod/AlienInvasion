@@ -1,3 +1,29 @@
+(function() {
+    var lastTime = 0;
+    var vendors = ['ms', 'moz', 'webkit', 'o'];
+    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+        window.cancelAnimationFrame = 
+          window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+    }
+ 
+    if (!window.requestAnimationFrame)
+        window.requestAnimationFrame = function(callback, element) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+            var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
+              timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+ 
+    if (!window.cancelAnimationFrame)
+        window.cancelAnimationFrame = function(id) {
+            clearTimeout(id);
+        };
+}());
+  
+
 var Game = new function() {                                                                  
   var boards = [];
 
@@ -47,10 +73,14 @@ var Game = new function() {
     },false);
   };
 
+
+  var lastTime = new Date().getTime();
+  var maxTime = 1/30;
   // Game Loop
-  this.loop = function() { 
-    var dt = 30 / 1000;
-    setTimeout(Game.loop,30);
+  this.loop = function(curTime) { 
+    requestAnimationFrame(Game.loop);
+    var dt = (curTime - lastTime)/1000;
+    if(dt > maxTime) { dt = maxTime; }
 
     for(var i=0,len = boards.length;i<len;i++) {
       if(boards[i]) { 
@@ -58,7 +88,7 @@ var Game = new function() {
         boards[i].draw(Game.ctx);
       }
     }
-
+    lastTime = curTime;
   };
   
   // Change an active game board
@@ -389,6 +419,10 @@ var TouchControls = function() {
   Game.canvas.addEventListener('touchstart',this.trackTouch,true);
   Game.canvas.addEventListener('touchmove',this.trackTouch,true);
   Game.canvas.addEventListener('touchend',this.trackTouch,true);
+
+  // For Android
+  Game.canvas.addEventListener('dblclick',function(e) { e.preventDefault(); },true);
+  Game.canvas.addEventListener('click',function(e) { e.preventDefault(); },true);
 
   Game.playerOffset = unitWidth + 20;
 };
