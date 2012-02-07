@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# v0.6
+# v0.7
 CACHE:
 index.html
 engine.js
@@ -10,4 +10,5 @@ base.css
 
 NETWORK:
 http://fonts.googleapis.com/css?family=BangersD
-http://www.google-analytics.com/ga.js
+http://www.google-analytics.com/*
+http://themes.googleusercontent.com/*
