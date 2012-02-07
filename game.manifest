@@ -1,7 +1,12 @@
 CACHE MANIFEST
 
-# v0.2
+# v0.3
 index.html
 engine.js
 game.js
 images/sprites.png
+base.css
+
+NETWORK
+http://fonts.googleapis.com/css?family=BangersD
+http://www.google-analytics.com/ga.js
