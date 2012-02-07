@@ -1,0 +1,14 @@
+CACHE MANIFEST
+
+# v0.8
+CACHE:
+index.html
+engine.js
+game.js
+images/sprites.png
+base.css
+
+NETWORK:
+http://fonts.googleapis.com/
+http://www.google-analytics.com/
+http://themes.googleusercontent.com/
