@@ -32,7 +32,7 @@ var startGame = function() {
   var ua = navigator.userAgent.toLowerCase();
 
   // Only 1 row of stars
-  if(ua.match(/Android/)) {
+  if(ua.match(/android/)) {
     Game.setBoard(0,new Starfield(50,0.6,100,true));
   } else {
     Game.setBoard(0,new Starfield(20,0.4,100,true));
