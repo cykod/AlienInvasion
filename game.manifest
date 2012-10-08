@@ -1,4 +1,4 @@
-# v1.01
+# v1.02
 
 CACHE:
 index.html
@@ -8,6 +8,4 @@ images/sprites.png
 base.css
 
 NETWORK:
-http://www.google-analytics.com/
-http://fonts.googleapis.com/
-http://themes.googleusercontent.com/
+*
