@@ -78,11 +78,6 @@ var loseGame = function() {
                                   playGame));
 };
 
-window.addEventListener("load", function() {
-  Game.initialize("game",sprites,startGame);
-
-});
-
 var Starfield = function(speed,opacity,numStars,clear) {
 
   // Set up the offscreen canvas
@@ -300,5 +295,11 @@ Explosion.prototype.step = function(dt) {
     this.board.remove(this);
   }
 };
+
+window.addEventListener("load", function() {
+  setTimeout(function() {
+    Game.initialize("game",sprites,startGame);
+  },50);
+});
 
 
