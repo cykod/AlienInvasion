@@ -59,15 +59,15 @@ var Game = new function() {
 
   this.setupInput = function() {
     window.addEventListener('keydown',function(e) {
-      if(KEY_CODES[event.keyCode]) {
-       Game.keys[KEY_CODES[event.keyCode]] = true;
+      if(KEY_CODES[e.keyCode]) {
+       Game.keys[KEY_CODES[e.keyCode]] = true;
        e.preventDefault();
       }
     },false);
 
     window.addEventListener('keyup',function(e) {
-      if(KEY_CODES[event.keyCode]) {
-       Game.keys[KEY_CODES[event.keyCode]] = false; 
+      if(KEY_CODES[e.keyCode]) {
+       Game.keys[KEY_CODES[e.keyCode]] = false; 
        e.preventDefault();
       }
     },false);
