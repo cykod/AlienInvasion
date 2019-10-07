@@ -40,7 +40,7 @@ var startGame = function() {
     Game.setBoard(2,new Starfield(100,1.0,50));
   }  
   Game.setBoard(3,new TitleScreen("Alien Invasion", 
-                                  "Press fire to start playing",
+                                  "Press SPACE to start playing and fire",
                                   playGame));
 };
 
@@ -68,13 +68,13 @@ var playGame = function() {
 
 var winGame = function() {
   Game.setBoard(3,new TitleScreen("You win!", 
-                                  "Press fire to play again",
+                                  "Press SPACE to play again",
                                   playGame));
 };
 
 var loseGame = function() {
   Game.setBoard(3,new TitleScreen("You lose!", 
-                                  "Press fire to play again",
+                                  "Press SPACE to play again",
                                   playGame));
 };
 
